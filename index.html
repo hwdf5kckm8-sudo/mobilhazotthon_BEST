@@ -273,7 +273,7 @@
       <h2 class="text-4xl md:text-5xl font-serif font-bold text-white text-center mb-16">Galéria</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         <div class="group relative aspect-square overflow-hidden rounded-xl cursor-pointer">
-          <img src="assets/H153616f028cb435f87ec8ea8cb4ff343b.png" alt="Konyha" class="w-full h-full object-cover transition-all duration-500 group-hover:scale-110 openable">
+          <img src="assets/H153616f028cb435f87ec8ea8cb4ff343b-sm.jpg" data-full="assets/H153616f028cb435f87ec8ea8cb4ff343b.png" alt="Konyha" class="w-full h-full object-cover transition-all duration-500 group-hover:scale-110 openable">
           <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <div class="absolute bottom-0 left-0 right-0 p-4">
               <p class="text-white font-semibold text-lg">Konyha</p>
@@ -281,7 +281,7 @@
           </div>
         </div>
         <div class="group relative aspect-square overflow-hidden rounded-xl cursor-pointer">
-          <img src="assets/H160bd5786bbf48f199bf2433d2c2be988.jpeg" alt="Praktikus nappali" class="w-full h-full object-cover transition-all duration-500 group-hover:scale-110 openable">
+          <img src="assets/H160bd5786bbf48f199bf2433d2c2be988-sm.jpg" data-full="assets/H160bd5786bbf48f199bf2433d2c2be988.jpeg" alt="Praktikus nappali" class="w-full h-full object-cover transition-all duration-500 group-hover:scale-110 openable">
           <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <div class="absolute bottom-0 left-0 right-0 p-4">
               <p class="text-white font-semibold text-lg">Nappali</p>
@@ -600,8 +600,10 @@
           if (idx !== -1) openLightbox(idx);
           else {
             // fallback: open direct
-            lightboxImg.src = heroImgEl.src;
+            const heroFull = heroImgEl.dataset.full || heroImgEl.src;
+            lightboxImg.src = heroFull;
             if (lightboxCaption) lightboxCaption.textContent = heroImgEl.alt || '';
+            if (lightboxOpen) { lightboxOpen.href = heroFull; }
             lightbox.classList.remove('hidden'); lightbox.classList.add('flex');
           }
         });
@@ -610,9 +612,10 @@
       function openLightbox(index) {
         if (index < 0 || index >= galleryImgs.length) return;
         const img = galleryImgs[index];
-        lightboxImg.src = img.src;
+        const fullSrc = img.dataset.full || img.src;
+        lightboxImg.src = fullSrc;
         if (lightboxCaption) lightboxCaption.textContent = img.alt || '';
-        if (lightboxOpen) { lightboxOpen.href = img.src; }
+        if (lightboxOpen) { lightboxOpen.href = fullSrc; }
         currentIndex = index;
         lightbox.classList.remove('hidden');
         lightbox.classList.add('flex');
