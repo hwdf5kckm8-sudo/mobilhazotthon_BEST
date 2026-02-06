@@ -14,10 +14,26 @@
     .font-serif { font-family: 'Playfair Display', serif; }
     .group-hover\:scale-110:hover { transform: scale(1.1); }
     .transition-all { transition: all 0.3s ease; }
+    .container { margin-left: auto; margin-right: auto; padding-left: 1.5rem; padding-right: 1.5rem; }
 
     /* Allow clicks to pass through the gallery overlay so images receive clicks */
     .group > .absolute.inset-0 { pointer-events: none; }
     .group > .absolute.inset-0 * { pointer-events: auto; }
+    .contact-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(120% 120% at 30% 30%, #ff6b63 0%, #ef4444 45%, #c81e1e 100%);
+      box-shadow: 0 10px 18px rgba(0, 0, 0, 0.35), 0 0 0 6px rgba(239, 68, 68, 0.18);
+    }
+    .contact-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke-width: 2.6;
+    }
   </style>
 </head>
 <body class="min-h-screen bg-slate-900 pt-20">
@@ -30,7 +46,7 @@
         <a href="#" class="text-gray-300 hover:text-white">Főoldal</a>
         <a href="#gallery" class="text-gray-300 hover:text-white">Galéria</a>
         <a href="#contact" class="text-gray-300 hover:text-white">Kérjen ajánlatot</a>
-        <a href="tel:+36201234567" class="bg-red-500 text-white px-4 py-2 rounded-full">Hívjon most</a>
+        <a href="tel:06209467577" class="bg-red-500 text-white px-4 py-2 rounded-full">Hívjon most</a>
       </div>
       <button id="mobileMenuBtn" class="md:hidden text-gray-300">
         <lucide-icon name="menu" class="w-6 h-6"></lucide-icon>
@@ -41,7 +57,7 @@
         <a href="#" class="text-white">Főoldal</a>
         <a href="#gallery" class="text-white">Galéria</a>
         <a href="#contact" class="text-white">Kérjen ajánlatot</a>
-        <a href="tel:+36201234567" class="text-white">Hívás</a>
+        <a href="tel:06209467577" class="text-white">Hívás</a>
       </div>
     </div>
   </nav>
@@ -126,7 +142,7 @@
               </div>
             </div>
           </div>
-          <div class="bg-slate-800 border border-slate-700 rounded-xl p-6 mb-6">
+          <div class="bg-slate-800 border border-slate-700 rounded-xl p-6 mb-6 transition-all duration-300 hover:bg-yellow-500/10 hover:border-yellow-500/60">
             <h3 class="text-yellow-400 font-bold text-lg mb-4">AJÁNDÉK a házhoz:</h3>
             <div class="space-y-3">
               <div class="flex items-start gap-3">
@@ -139,7 +155,7 @@
               </div>
             </div>
           </div>
-          <div class="bg-slate-800 border border-slate-700 rounded-xl p-6">
+          <div class="bg-slate-800 border border-slate-700 rounded-xl p-6 transition-all duration-300 hover:bg-yellow-500/10 hover:border-yellow-500/60">
             <h3 class="text-yellow-400 font-bold text-lg mb-4">Szállítás és telepítés:</h3>
             <p class="text-gray-300 leading-relaxed">Az árban benne foglaltatik a szállítás és a teljes telepítés!</p>
             <p class="text-gray-300 leading-relaxed mt-3">Minden ház 95%-os készültségi fokon érkezik az Önhöz, előre elkészített vízvezetékekkel, vezetékekkel, és teljesen felszerelt, kész fürdőszobával és konyhával az Ön kényelme érdekében.</p>
@@ -176,84 +192,76 @@
       <h2 class="text-4xl md:text-5xl font-serif font-bold text-white text-center mb-16">Fő jellemzők</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Feature items -->
-        <div class="group bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-xl p-8 hover:border-yellow-500 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-yellow-500/20">
-          <div class="flex flex-col items-center text-center">
-            <div class="w-16 h-16 rounded-full bg-yellow-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-              <lucide-icon name="maximize" class="w-8 h-8 text-slate-900"></lucide-icon>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-2">37 m² alapterület</h3>
-            <p class="text-gray-400">Tágas belső tér a kényelemért</p>
+        <div class="bg-slate-800/60 border border-slate-700 rounded-2xl p-8 text-center transition-all duration-300 hover:bg-yellow-500/10 hover:border-yellow-500/60">
+          <div class="w-16 h-16 rounded-full bg-yellow-500 flex items-center justify-center mb-4 mx-auto">
+            <lucide-icon name="maximize" class="w-8 h-8 text-slate-900"></lucide-icon>
           </div>
+          <h3 class="text-lg font-semibold text-white mb-2">37 m² alapterület</h3>
+          <p class="text-gray-400 text-sm">Tágas belső tér a kényelemért</p>
         </div>
 
-        <div class="group bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-xl p-8 hover:border-yellow-500 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-yellow-500/20">
-          <div class="flex flex-col items-center text-center">
-            <div class="w-16 h-16 rounded-full bg-red-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-              <lucide-icon name="truck" class="w-8 h-8 text-white"></lucide-icon>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-2">Szállítás és telepítés</h3>
-            <p class="text-gray-400">Teljes telepítés és szállítás benne az árban</p>
+        <div class="bg-slate-800/60 border border-slate-700 rounded-2xl p-8 text-center transition-all duration-300 hover:bg-yellow-500/10 hover:border-yellow-500/60">
+          <div class="w-16 h-16 rounded-full bg-yellow-500 flex items-center justify-center mb-4 mx-auto">
+            <lucide-icon name="bed" class="w-8 h-8 text-slate-900"></lucide-icon>
           </div>
+          <h3 class="text-lg font-semibold text-white mb-2">2 hálószoba</h3>
+          <p class="text-gray-400 text-sm">Kényelmes pihenés mindenkinek</p>
         </div>
 
-        <div class="group bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-xl p-8 hover:border-yellow-500 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-yellow-500/20">
-          <div class="flex flex-col items-center text-center">
-            <div class="w-16 h-16 rounded-full bg-yellow-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-              <lucide-icon name="check" class="w-8 h-8 text-slate-900"></lucide-icon>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-2">Prémium anyagok</h3>
-            <p class="text-gray-400">Magas színvonalú kivitelezés és tartós anyagok</p>
+        <div class="bg-slate-800/60 border border-slate-700 rounded-2xl p-8 text-center transition-all duration-300 hover:bg-yellow-500/10 hover:border-yellow-500/60">
+          <div class="w-16 h-16 rounded-full bg-yellow-500 flex items-center justify-center mb-4 mx-auto">
+            <lucide-icon name="sofa" class="w-8 h-8 text-slate-900"></lucide-icon>
           </div>
+          <h3 class="text-lg font-semibold text-white mb-2">Nappali</h3>
+          <p class="text-gray-400 text-sm">Hangulatos közösségi tér</p>
         </div>
 
-        <div class="group bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-xl p-8 hover:border-yellow-500 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-yellow-500/20">
-          <div class="flex flex-col items-center text-center">
-            <div class="w-16 h-16 rounded-full bg-yellow-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-              <lucide-icon name="thermometer" class="w-8 h-8 text-slate-900"></lucide-icon>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-2">Kiváló szigetelés</h3>
-            <p class="text-gray-400">Energia- és hangszigetelt megoldások a komfortért</p>
+        <div class="bg-slate-800/60 border border-slate-700 rounded-2xl p-8 text-center transition-all duration-300 hover:bg-yellow-500/10 hover:border-yellow-500/60">
+          <div class="w-16 h-16 rounded-full bg-yellow-500 flex items-center justify-center mb-4 mx-auto">
+            <lucide-icon name="chef-hat" class="w-8 h-8 text-slate-900"></lucide-icon>
           </div>
+          <h3 class="text-lg font-semibold text-white mb-2">Kész konyha</h3>
+          <p class="text-gray-400 text-sm">Teljesen felszerelve</p>
         </div>
 
-        <div class="group bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-xl p-8 hover:border-yellow-500 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-yellow-500/20">
-          <div class="flex flex-col items-center text-center">
-            <div class="w-16 h-16 rounded-full bg-red-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-              <lucide-icon name="clock" class="w-8 h-8 text-white"></lucide-icon>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-2">Gyors telepítés</h3>
-            <p class="text-gray-400">Rövid határidők és gyors kiszállítás</p>
+        <div class="bg-slate-800/60 border border-slate-700 rounded-2xl p-8 text-center transition-all duration-300 hover:bg-yellow-500/10 hover:border-yellow-500/60">
+          <div class="w-16 h-16 rounded-full bg-yellow-500 flex items-center justify-center mb-4 mx-auto">
+            <lucide-icon name="bath" class="w-8 h-8 text-slate-900"></lucide-icon>
           </div>
+          <h3 class="text-lg font-semibold text-white mb-2">Fürdőszoba</h3>
+          <p class="text-gray-400 text-sm">Zuhanyzóval, mosdóval, WC-vel</p>
         </div>
 
-        <div class="group bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-xl p-8 hover:border-yellow-500 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-yellow-500/20">
-          <div class="flex flex-col items-center text-center">
-            <div class="w-16 h-16 rounded-full bg-yellow-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-              <lucide-icon name="plug" class="w-8 h-8 text-slate-900"></lucide-icon>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-2">Teljes felszereltség</h3>
-            <p class="text-gray-400">Konyha és fürdő teljesen felszerelve</p>
+        <div class="bg-slate-800/60 border border-slate-700 rounded-2xl p-8 text-center transition-all duration-300 hover:bg-yellow-500/10 hover:border-yellow-500/60">
+          <div class="w-16 h-16 rounded-full bg-yellow-500 flex items-center justify-center mb-4 mx-auto">
+            <lucide-icon name="truck" class="w-8 h-8 text-slate-900"></lucide-icon>
           </div>
+          <h3 class="text-lg font-semibold text-white mb-2">Szállítás + Telepítés</h3>
+          <p class="text-gray-400 text-sm">Az árban benne van!</p>
         </div>
 
-        <div class="group bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-xl p-8 hover:border-yellow-500 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-yellow-500/20">
-          <div class="flex flex-col items-center text-center">
-            <div class="w-16 h-16 rounded-full bg-yellow-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-              <lucide-icon name="sun" class="w-8 h-8 text-slate-900"></lucide-icon>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-2">Fényes terek</h3>
-            <p class="text-gray-400">Nagy ablakok és jó megvilágítás</p>
+        <div class="bg-slate-800/60 border border-slate-700 rounded-2xl p-8 text-center transition-all duration-300 hover:bg-yellow-500/10 hover:border-yellow-500/60">
+          <div class="w-16 h-16 rounded-full bg-yellow-500 flex items-center justify-center mb-4 mx-auto">
+            <lucide-icon name="wrench" class="w-8 h-8 text-slate-900"></lucide-icon>
           </div>
+          <h3 class="text-lg font-semibold text-white mb-2">Gyors összeszerelés</h3>
+          <p class="text-gray-400 text-sm">Egyszerű telepítési folyamat</p>
         </div>
 
-        <div class="group bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-xl p-8 hover:border-yellow-500 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-yellow-500/20">
-          <div class="flex flex-col items-center text-center">
-            <div class="w-16 h-16 rounded-full bg-red-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-              <lucide-icon name="shield-check" class="w-8 h-8 text-white"></lucide-icon>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-2">Biztonság és garancia</h3>
-            <p class="text-gray-400">Műszaki garancia és megbízható kivitelezés</p>
+        <div class="bg-slate-800/60 border border-slate-700 rounded-2xl p-8 text-center transition-all duration-300 hover:bg-yellow-500/10 hover:border-yellow-500/60">
+          <div class="w-16 h-16 rounded-full bg-yellow-500 flex items-center justify-center mb-4 mx-auto">
+            <lucide-icon name="droplets" class="w-8 h-8 text-slate-900"></lucide-icon>
           </div>
+          <h3 class="text-lg font-semibold text-white mb-2">Előre bekötött</h3>
+          <p class="text-gray-400 text-sm">Vízvezetékkel ellátva</p>
+        </div>
+
+        <div class="bg-slate-800/60 border border-slate-700 rounded-2xl p-8 text-center transition-all duration-300 hover:bg-yellow-500/10 hover:border-yellow-500/60">
+          <div class="w-16 h-16 rounded-full bg-yellow-500 flex items-center justify-center mb-4 mx-auto">
+            <lucide-icon name="home" class="w-8 h-8 text-slate-900"></lucide-icon>
+          </div>
+          <h3 class="text-lg font-semibold text-white mb-2">Bővíthető kialakítás</h3>
+          <p class="text-gray-400 text-sm">A mobil élethez tervezve</p>
         </div>
       </div>
     </div>
@@ -377,12 +385,40 @@
     <div class="container">
       <h2 class="text-4xl md:text-5xl font-serif font-bold text-white text-center mb-4">Kérjen ajánlatot</h2>
       <p class="text-gray-300 text-center text-lg mb-12 max-w-3xl mx-auto">Érdekli a 37 m²-es bővíthető mobilházunk 2 hálószobával? Töltse ki az űrlapot, és hamarosan felvesszük Önnel a kapcsolatot!</p>
-      <div class="grid lg:grid-cols-2 gap-12">
-        <!-- Bal oldal -->
-        <div class="space-y-8">
-          <!-- Ajándék csomag -->
-          <!-- ... -->
+      <div class="grid lg:grid-cols-2 gap-12 items-start">
+        <!-- Bal oldal: Információs kártyák -->
+        <div class="space-y-6">
+          <div class="bg-slate-800/60 border border-slate-700 rounded-xl p-6 flex items-center gap-4 transition-all duration-300 hover:bg-yellow-500/15 hover:border-yellow-500/60">
+            <div class="contact-icon">
+              <lucide-icon name="phone" class="text-white w-6 h-6"></lucide-icon>
+            </div>
+            <div>
+              <p class="text-xs uppercase tracking-widest text-gray-400">Telefonszám</p>
+              <p class="text-white font-semibold text-lg">+36 20 946 7577</p>
+            </div>
+          </div>
+
+          <div class="bg-slate-800/60 border border-slate-700 rounded-xl p-6 flex items-center gap-4 transition-all duration-300 hover:bg-yellow-500/15 hover:border-yellow-500/60">
+            <div class="contact-icon">
+              <lucide-icon name="mail" class="text-white w-6 h-6"></lucide-icon>
+            </div>
+            <div>
+              <p class="text-xs uppercase tracking-widest text-gray-400">Email cím</p>
+              <p class="text-white font-semibold text-lg">georg.kiss@gmail.com</p>
+            </div>
+          </div>
+
+          <div class="bg-slate-800/60 border border-slate-700 rounded-xl p-6 flex items-center gap-4 transition-all duration-300 hover:bg-yellow-500/15 hover:border-yellow-500/60">
+            <div class="contact-icon">
+              <lucide-icon name="map-pin" class="text-white w-6 h-6"></lucide-icon>
+            </div>
+            <div>
+              <p class="text-xs uppercase tracking-widest text-gray-400">Cég</p>
+              <p class="text-white font-semibold text-lg">Meron Trade Kft</p>
+            </div>
+          </div>
         </div>
+
         <!-- Jobb oldal: Form -->
         <div class="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-xl p-8">
           <form action="https://formspree.io/f/mykpbndb" method="POST" class="space-y-6">
@@ -419,12 +455,6 @@
     <div class="container">
       <div class="flex flex-col md:flex-row items-center justify-between gap-4">
         <p class="text-gray-400 text-sm">© 2026 Meron Trade Kft. Minden jog fenntartva.</p>
-        <a href="https://app.emergent.sh/?utm_source=emergent-badge" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-gray-400 hover:text-yellow-400 transition-colors text-sm">
-          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-          </svg>
-          Made with Emergent
-        </a>
       </div>
     </div>
   </footer>
