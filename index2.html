@@ -34,6 +34,42 @@
       height: 24px;
       stroke-width: 2.6;
     }
+    @media (max-width: 640px) {
+      .container { padding-left: 1rem; padding-right: 1rem; }
+      section:not(.hero-section) { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+      nav .container { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+      #mobileMenu .container { gap: 0.75rem; }
+      #mobileMenu a { padding: 0.25rem 0; font-size: 1rem; font-weight: 600; }
+
+      .hero-section { min-height: 92vh; }
+      .hero-badge { padding: 0.4rem 0.75rem; font-size: 0.75rem; }
+      .hero-title { font-size: 2.5rem; line-height: 1.05; }
+      .hero-subtitle { font-size: 1.5rem; margin-bottom: 0.75rem; }
+      .hero-desc { font-size: 1rem; margin-bottom: 2rem; }
+      .hero-meta { font-size: 0.95rem; margin-bottom: 1.5rem; flex-direction: column; }
+      .hero-card { width: 100%; max-width: 100%; padding: 1rem; border-radius: 1rem; margin-bottom: 2rem; }
+      .hero-card h3 { font-size: 1.1rem; }
+      .hero-card span { font-size: 0.95rem; }
+      .hero-actions { width: 100%; gap: 0.75rem; }
+      .hero-actions > * { width: 100%; padding-top: 1rem; padding-bottom: 1rem; }
+      .hero-actions a, .hero-actions button { font-size: 1rem; }
+
+      #features .grid { gap: 0.75rem; }
+      #features .grid > div { padding: 1rem; border-radius: 1rem; }
+      #features h3 { font-size: 1rem; }
+      #features p { font-size: 0.85rem; }
+
+      #gallery .grid { gap: 0.75rem; }
+      #gallery .grid > div { border-radius: 0.9rem; }
+
+      #contact .contact-cards { gap: 0.75rem; }
+      #contact .contact-cards > div { padding: 1rem; }
+      #contact form { padding: 1.25rem; }
+      .contact-icon { width: 48px; height: 48px; }
+      .contact-icon svg { width: 20px; height: 20px; }
+
+      footer .container { text-align: center; }
+    }
   </style>
 </head>
 <body class="min-h-screen bg-slate-900 pt-20">
@@ -63,22 +99,22 @@
   </nav>
 
   <!-- Hero Section -->
-  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <section class="hero-section relative min-h-screen flex items-center justify-center overflow-hidden">
     <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('assets/H40b999118c934da288fbb12c278bd93do.png');">
       <div class="absolute inset-0 bg-slate-900/85"></div>
     </div>
     <div class="relative z-10 container mx-auto px-6 text-center">
-      <div class="inline-flex items-center gap-2 bg-yellow-500/20 border border-yellow-500/30 rounded-full px-6 py-2 mb-8">
+      <div class="hero-badge inline-flex items-center gap-2 bg-yellow-500/20 border border-yellow-500/30 rounded-full px-6 py-2 mb-8">
         <span class="text-yellow-400 text-sm font-medium">Prémium minőség • 37 m² • 2 hálószoba</span>
       </div>
-      <h1 class="text-5xl md:text-7xl font-serif font-bold text-white mb-4">Álom otthon</h1>
-      <p class="text-2xl md:text-3xl text-yellow-400 font-semibold mb-4">Mobilház</p>
-      <p class="text-lg md:text-xl text-gray-300 mb-12 max-w-2xl mx-auto">Praktikus és sokoldalú lakhatási megoldás</p>
-      <div class="flex items-center justify-center gap-2 mb-8">
+      <h1 class="hero-title text-5xl md:text-7xl font-serif font-bold text-white mb-4">Álom otthon</h1>
+      <p class="hero-subtitle text-2xl md:text-3xl text-yellow-400 font-semibold mb-4">Mobilház</p>
+      <p class="hero-desc text-lg md:text-xl text-gray-300 mb-12 max-w-2xl mx-auto">Praktikus és sokoldalú lakhatási megoldás</p>
+      <div class="hero-meta flex items-center justify-center gap-2 mb-8">
         <lucide-icon name="truck" class="text-red-400 w-5 h-5"></lucide-icon>
         <p class="text-red-400 font-semibold text-lg">Szállítás és telepítés az árban!</p>
       </div>
-      <div class="inline-block bg-slate-800/60 backdrop-blur-sm border-2 border-yellow-500 rounded-2xl p-6 mb-12 max-w-md">
+      <div class="hero-card inline-block bg-slate-800/60 backdrop-blur-sm border-2 border-yellow-500 rounded-2xl p-6 mb-12 max-w-md">
         <h3 class="text-yellow-400 font-bold text-xl mb-4">Ajándék csomag!</h3>
         <div class="space-y-3 text-left">
           <div class="flex items-start gap-3">
@@ -91,7 +127,7 @@
           </div>
         </div>
       </div>
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <div class="hero-actions flex flex-col sm:flex-row items-center justify-center gap-4">
         <a href="#contact" class="inline-flex items-center justify-center bg-red-500 hover:bg-red-600 text-white font-semibold px-8 py-6 text-lg rounded-full transition-all duration-300 hover:scale-105">KÉRJEN ÁRAJÁNLATOT!</a>
         <button class="border-2 border-yellow-500 text-yellow-400 hover:bg-yellow-500 hover:text-slate-900 font-semibold px-8 py-6 text-lg rounded-full transition-all duration-300 hover:scale-105">
           <lucide-icon name="phone" class="w-5 h-5 mr-2"></lucide-icon>
@@ -187,7 +223,7 @@
   </section>
 
   <!-- Features Section -->
-  <section class="py-20 bg-slate-900">
+  <section id="features" class="py-20 bg-slate-900">
     <div class="container">
       <h2 class="text-4xl md:text-5xl font-serif font-bold text-white text-center mb-16">Fő jellemzők</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -387,7 +423,7 @@
       <p class="text-gray-300 text-center text-lg mb-12 max-w-3xl mx-auto">Érdekli a 37 m²-es bővíthető mobilházunk 2 hálószobával? Töltse ki az űrlapot, és hamarosan felvesszük Önnel a kapcsolatot!</p>
       <div class="grid lg:grid-cols-2 gap-12 items-start">
         <!-- Bal oldal: Információs kártyák -->
-        <div class="space-y-6">
+        <div class="contact-cards space-y-6">
           <div class="bg-slate-800/60 border border-slate-700 rounded-xl p-6 flex items-center gap-4 transition-all duration-300 hover:bg-yellow-500/15 hover:border-yellow-500/60">
             <div class="contact-icon">
               <lucide-icon name="phone" class="text-white w-6 h-6"></lucide-icon>
