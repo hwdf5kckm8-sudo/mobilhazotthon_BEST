@@ -10,6 +10,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <style>
+    html { scroll-behavior: smooth; }
     body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #f1f5f9; }
     .font-serif { font-family: 'Playfair Display', serif; }
     .group-hover\:scale-110:hover { transform: scale(1.1); }
@@ -33,6 +34,46 @@
       width: 24px;
       height: 24px;
       stroke-width: 2.6;
+    }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .mobile-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #e2e8f0;
+      background: rgba(30, 41, 59, 0.7);
+      border: 1px solid rgba(51, 65, 85, 0.8);
+      white-space: nowrap;
+    }
+    .mobile-pill.cta {
+      background: #ef4444;
+      border-color: #ef4444;
+      color: #fff;
+    }
+    .feature-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 9999px;
+      background: #f3b200;
+      border: 1px solid #d29a00;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 8px 14px rgba(0, 0, 0, 0.35);
+    }
+    .feature-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: #0b1220;
+      stroke-width: 2.1;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
     }
     @media (max-width: 640px) {
       .container { padding-left: 1rem; padding-right: 1rem; }
@@ -72,28 +113,28 @@
     }
   </style>
 </head>
-<body class="min-h-screen bg-slate-900 pt-20">
+<body id="top" class="min-h-screen bg-slate-900 pt-20">
 
   <!-- Header / Navigation -->
   <nav class="fixed inset-x-0 top-0 z-50">
     <div class="container mx-auto px-6 py-4 flex items-center justify-between">
       <a href="#" class="text-white font-serif text-2xl font-bold">Álom Otthon</a>
       <div class="hidden md:flex items-center gap-6">
-        <a href="#" class="text-gray-300 hover:text-white">Főoldal</a>
+        <a href="#top" class="text-gray-300 hover:text-white">Főoldal</a>
         <a href="#gallery" class="text-gray-300 hover:text-white">Galéria</a>
         <a href="#contact" class="text-gray-300 hover:text-white">Kérjen ajánlatot</a>
         <a href="tel:06209467577" class="bg-red-500 text-white px-4 py-2 rounded-full">Hívjon most</a>
       </div>
-      <button id="mobileMenuBtn" class="md:hidden text-gray-300">
+      <button id="mobileMenuBtn" class="hidden md:hidden text-gray-300">
         <lucide-icon name="menu" class="w-6 h-6"></lucide-icon>
       </button>
     </div>
-    <div id="mobileMenu" class="md:hidden bg-slate-900/95 backdrop-blur-sm py-4 hidden">
-      <div class="container mx-auto px-6 flex flex-col gap-4">
-        <a href="#" class="text-white">Főoldal</a>
-        <a href="#gallery" class="text-white">Galéria</a>
-        <a href="#contact" class="text-white">Kérjen ajánlatot</a>
-        <a href="tel:06209467577" class="text-white">Hívás</a>
+    <div class="md:hidden border-t border-slate-800/60 bg-slate-900/95">
+      <div class="container mx-auto px-6 py-3 flex items-center gap-2 overflow-x-auto no-scrollbar">
+        <a href="#top" class="mobile-pill">Főoldal</a>
+        <a href="#gallery" class="mobile-pill">Galéria</a>
+        <a href="#contact" class="mobile-pill">Kérjen ajánlatot</a>
+        <a href="tel:06209467577" class="mobile-pill cta">Hívás</a>
       </div>
     </div>
   </nav>
@@ -199,7 +240,7 @@
         </div>
         <div class="relative">
           <div class="relative rounded-2xl overflow-hidden shadow-2xl">
-            <img src="assets/H247a4a6e649b44f7903d5d724deabf28c.jpg" alt="Mobilház belső tér" class="w-full h-auto openable">
+            <img src="assets/upscalingmedia.png" alt="Mobilház külső" class="w-full h-auto openable">
           </div>
           <div class="absolute bottom-6 right-6 bg-white rounded-xl shadow-2xl p-6">
             <div class="grid grid-cols-3 gap-6">
@@ -229,72 +270,72 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Feature items -->
         <div class="bg-slate-800/60 border border-slate-700 rounded-2xl p-8 text-center transition-all duration-300 hover:bg-yellow-500/10 hover:border-yellow-500/60">
-          <div class="w-16 h-16 rounded-full bg-yellow-500 flex items-center justify-center mb-4 mx-auto">
-            <lucide-icon name="maximize" class="w-8 h-8 text-slate-900"></lucide-icon>
+          <div class="feature-icon mb-4 mx-auto">
+            <lucide-icon name="maximize"></lucide-icon>
           </div>
           <h3 class="text-lg font-semibold text-white mb-2">37 m² alapterület</h3>
           <p class="text-gray-400 text-sm">Tágas belső tér a kényelemért</p>
         </div>
 
         <div class="bg-slate-800/60 border border-slate-700 rounded-2xl p-8 text-center transition-all duration-300 hover:bg-yellow-500/10 hover:border-yellow-500/60">
-          <div class="w-16 h-16 rounded-full bg-yellow-500 flex items-center justify-center mb-4 mx-auto">
-            <lucide-icon name="bed" class="w-8 h-8 text-slate-900"></lucide-icon>
+          <div class="feature-icon mb-4 mx-auto">
+            <lucide-icon name="bed"></lucide-icon>
           </div>
           <h3 class="text-lg font-semibold text-white mb-2">2 hálószoba</h3>
           <p class="text-gray-400 text-sm">Kényelmes pihenés mindenkinek</p>
         </div>
 
         <div class="bg-slate-800/60 border border-slate-700 rounded-2xl p-8 text-center transition-all duration-300 hover:bg-yellow-500/10 hover:border-yellow-500/60">
-          <div class="w-16 h-16 rounded-full bg-yellow-500 flex items-center justify-center mb-4 mx-auto">
-            <lucide-icon name="sofa" class="w-8 h-8 text-slate-900"></lucide-icon>
+          <div class="feature-icon mb-4 mx-auto">
+            <lucide-icon name="sofa"></lucide-icon>
           </div>
           <h3 class="text-lg font-semibold text-white mb-2">Nappali</h3>
           <p class="text-gray-400 text-sm">Hangulatos közösségi tér</p>
         </div>
 
         <div class="bg-slate-800/60 border border-slate-700 rounded-2xl p-8 text-center transition-all duration-300 hover:bg-yellow-500/10 hover:border-yellow-500/60">
-          <div class="w-16 h-16 rounded-full bg-yellow-500 flex items-center justify-center mb-4 mx-auto">
-            <lucide-icon name="chef-hat" class="w-8 h-8 text-slate-900"></lucide-icon>
+          <div class="feature-icon mb-4 mx-auto">
+            <lucide-icon name="chef-hat"></lucide-icon>
           </div>
           <h3 class="text-lg font-semibold text-white mb-2">Kész konyha</h3>
           <p class="text-gray-400 text-sm">Teljesen felszerelve</p>
         </div>
 
         <div class="bg-slate-800/60 border border-slate-700 rounded-2xl p-8 text-center transition-all duration-300 hover:bg-yellow-500/10 hover:border-yellow-500/60">
-          <div class="w-16 h-16 rounded-full bg-yellow-500 flex items-center justify-center mb-4 mx-auto">
-            <lucide-icon name="bath" class="w-8 h-8 text-slate-900"></lucide-icon>
+          <div class="feature-icon mb-4 mx-auto">
+            <lucide-icon name="bath"></lucide-icon>
           </div>
           <h3 class="text-lg font-semibold text-white mb-2">Fürdőszoba</h3>
           <p class="text-gray-400 text-sm">Zuhanyzóval, mosdóval, WC-vel</p>
         </div>
 
         <div class="bg-slate-800/60 border border-slate-700 rounded-2xl p-8 text-center transition-all duration-300 hover:bg-yellow-500/10 hover:border-yellow-500/60">
-          <div class="w-16 h-16 rounded-full bg-yellow-500 flex items-center justify-center mb-4 mx-auto">
-            <lucide-icon name="truck" class="w-8 h-8 text-slate-900"></lucide-icon>
+          <div class="feature-icon mb-4 mx-auto">
+            <lucide-icon name="truck"></lucide-icon>
           </div>
           <h3 class="text-lg font-semibold text-white mb-2">Szállítás + Telepítés</h3>
           <p class="text-gray-400 text-sm">Az árban benne van!</p>
         </div>
 
         <div class="bg-slate-800/60 border border-slate-700 rounded-2xl p-8 text-center transition-all duration-300 hover:bg-yellow-500/10 hover:border-yellow-500/60">
-          <div class="w-16 h-16 rounded-full bg-yellow-500 flex items-center justify-center mb-4 mx-auto">
-            <lucide-icon name="wrench" class="w-8 h-8 text-slate-900"></lucide-icon>
+          <div class="feature-icon mb-4 mx-auto">
+            <lucide-icon name="wrench"></lucide-icon>
           </div>
           <h3 class="text-lg font-semibold text-white mb-2">Gyors összeszerelés</h3>
           <p class="text-gray-400 text-sm">Egyszerű telepítési folyamat</p>
         </div>
 
         <div class="bg-slate-800/60 border border-slate-700 rounded-2xl p-8 text-center transition-all duration-300 hover:bg-yellow-500/10 hover:border-yellow-500/60">
-          <div class="w-16 h-16 rounded-full bg-yellow-500 flex items-center justify-center mb-4 mx-auto">
-            <lucide-icon name="droplets" class="w-8 h-8 text-slate-900"></lucide-icon>
+          <div class="feature-icon mb-4 mx-auto">
+            <lucide-icon name="droplets"></lucide-icon>
           </div>
           <h3 class="text-lg font-semibold text-white mb-2">Előre bekötött</h3>
           <p class="text-gray-400 text-sm">Vízvezetékkel ellátva</p>
         </div>
 
         <div class="bg-slate-800/60 border border-slate-700 rounded-2xl p-8 text-center transition-all duration-300 hover:bg-yellow-500/10 hover:border-yellow-500/60">
-          <div class="w-16 h-16 rounded-full bg-yellow-500 flex items-center justify-center mb-4 mx-auto">
-            <lucide-icon name="home" class="w-8 h-8 text-slate-900"></lucide-icon>
+          <div class="feature-icon mb-4 mx-auto">
+            <lucide-icon name="home"></lucide-icon>
           </div>
           <h3 class="text-lg font-semibold text-white mb-2">Bővíthető kialakítás</h3>
           <p class="text-gray-400 text-sm">A mobil élethez tervezve</p>
