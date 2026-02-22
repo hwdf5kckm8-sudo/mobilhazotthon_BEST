@@ -81,6 +81,24 @@
       aspect-ratio: 16 / 10;
       object-fit: cover;
     }
+    .floorplan-thumb {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 3;
+      object-fit: contain;
+      background: rgba(15, 23, 42, 0.7);
+      padding: 0.5rem;
+    }
+    .floorplan-card {
+      display: flex;
+      flex-direction: column;
+    }
+    .floorplan-caption {
+      padding: 1rem 1.25rem;
+      background: rgba(15, 23, 42, 0.75);
+      border-top: 1px solid rgba(51, 65, 85, 0.7);
+    }
     @media (max-width: 900px) {
       .about-visual-stack { margin-top: 0.5rem; }
       .about-stat-card {
@@ -93,7 +111,7 @@
       .about-stat-card .text-3xl { font-size: 1.55rem; line-height: 1.05; }
     }
     @media (max-width: 640px) {
-      body { padding-top: 7.25rem !important; }
+      body { padding-top: 6.5rem !important; }
       .container { padding-left: 1rem; padding-right: 1rem; }
       section:not(.hero-section) { padding-top: 3.5rem; padding-bottom: 3.5rem; }
       nav .container { padding-top: 0.75rem; padding-bottom: 0.75rem; }
@@ -129,7 +147,8 @@
       #gallery .grid > div { border-radius: 0.9rem; }
 
       #alaprajzok .grid { gap: 0.9rem; }
-      #alaprajzok p { font-size: 1.15rem; }
+      .floorplan-caption p { font-size: 1.05rem; line-height: 1.35; }
+      .floorplan-thumb { aspect-ratio: 5 / 4; padding: 0.35rem; }
 
       #contact .contact-cards { gap: 0.75rem; }
       #contact .contact-cards > div { padding: 1rem; }
@@ -147,7 +166,7 @@
   <nav class="fixed inset-x-0 top-0 z-50">
     <div class="container mx-auto px-6 py-4 flex items-center justify-between">
       <a href="#top" class="inline-flex items-center" aria-label="Álom Otthon - tetejére ugrás">
-        <img src="assets/Dark Blue and Gold Luxury Modern Real Estate Property Logo.png" alt="Álom Otthon logó" class="h-20 sm:h-24 w-auto max-w-[70vw] md:max-w-[260px] rounded-full">
+        <img src="assets/Dark Blue and Gold Luxury Modern Real Estate Property Logo.png" alt="Álom Otthon logó" class="h-14 sm:h-16 md:h-20 w-auto max-w-[75vw] md:max-w-[260px] rounded-full">
       </a>
       <div class="hidden md:flex items-center gap-6">
         <a href="#top" class="text-gray-300 hover:text-white">Főoldal</a>
@@ -539,18 +558,16 @@
     <div class="container">
       <h2 class="text-4xl md:text-5xl font-serif font-bold text-white text-center mb-16">Alaprajzok</h2>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div class="group relative overflow-hidden rounded-2xl border border-slate-700 bg-slate-800/40 cursor-pointer">
-          <img src="assets/2026-02-06 21.42.36.jpg" alt="37 m² ház alaprajza" class="w-full h-auto object-cover transition-all duration-500 group-hover:scale-105 openable">
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/30 to-transparent"></div>
-          <div class="absolute bottom-0 left-0 right-0 p-6">
+        <div class="group floorplan-card relative overflow-hidden rounded-2xl border border-slate-700 bg-slate-800/40 cursor-pointer">
+          <img src="assets/2026-02-06 21.42.36.jpg" alt="37 m² ház alaprajza" class="floorplan-thumb transition-all duration-500 openable">
+          <div class="floorplan-caption">
             <p class="text-white font-semibold text-2xl">37 m²-es ház alaprajza</p>
           </div>
         </div>
 
-        <div class="group relative overflow-hidden rounded-2xl border border-slate-700 bg-slate-800/40 cursor-pointer">
-          <img src="assets/2026-02-06 21.33.27.jpg" alt="72 m² ház alaprajza" class="w-full h-auto object-cover transition-all duration-500 group-hover:scale-105 openable">
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/30 to-transparent"></div>
-          <div class="absolute bottom-0 left-0 right-0 p-6">
+        <div class="group floorplan-card relative overflow-hidden rounded-2xl border border-slate-700 bg-slate-800/40 cursor-pointer">
+          <img src="assets/2026-02-06 21.33.27.jpg" alt="72 m² ház alaprajza" class="floorplan-thumb transition-all duration-500 openable">
+          <div class="floorplan-caption">
             <p class="text-white font-semibold text-2xl">72 m²-es ház alaprajza</p>
           </div>
         </div>
@@ -649,7 +666,7 @@
     </button>
 
     <div class="max-w-[90%] max-h-[90%] text-center">
-      <img id="lightboxImg" src="" alt="" class="mx-auto rounded-lg shadow-2xl max-h-[80vh]" />
+      <img id="lightboxImg" src="" alt="" class="mx-auto rounded-lg shadow-2xl max-h-[85vh] max-w-[92vw] w-auto object-contain" />
       <p id="lightboxCaption" class="mt-4 text-white text-sm opacity-90"></p>
       <a id="lightboxOpen" href="#" target="_blank" class="mt-4 inline-block text-sm text-yellow-400 hover:underline">Megnyitás eredeti méretben</a>
     </div>
