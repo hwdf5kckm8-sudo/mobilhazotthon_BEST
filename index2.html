@@ -75,7 +75,25 @@
       stroke-linejoin: round;
       fill: none;
     }
+    .about-visual-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+    }
+    @media (max-width: 900px) {
+      .about-visual-stack { margin-top: 0.5rem; }
+      .about-stat-card {
+        left: 0.75rem;
+        right: 0.75rem;
+        bottom: 0.75rem;
+        padding: 0.9rem;
+      }
+      .about-stat-card .grid { gap: 0.75rem; }
+      .about-stat-card .text-3xl { font-size: 1.55rem; line-height: 1.05; }
+    }
     @media (max-width: 640px) {
+      body { padding-top: 7.25rem !important; }
       .container { padding-left: 1rem; padding-right: 1rem; }
       section:not(.hero-section) { padding-top: 3.5rem; padding-bottom: 3.5rem; }
       nav .container { padding-top: 0.75rem; padding-bottom: 0.75rem; }
@@ -84,6 +102,7 @@
 
       .hero-section { min-height: 92vh; }
       .hero-badge { padding: 0.4rem 0.75rem; font-size: 0.75rem; }
+      .hero-badge span { white-space: normal; text-align: center; }
       .hero-title { font-size: 2.5rem; line-height: 1.05; }
       .hero-subtitle { font-size: 1.5rem; margin-bottom: 0.75rem; }
       .hero-desc { font-size: 1rem; margin-bottom: 2rem; }
@@ -100,8 +119,17 @@
       #features h3 { font-size: 1rem; }
       #features p { font-size: 0.85rem; }
 
+      .about-stat-card {
+        position: static;
+        margin-top: 0.75rem;
+        width: 100%;
+      }
+
       #gallery .grid { gap: 0.75rem; }
       #gallery .grid > div { border-radius: 0.9rem; }
+
+      #alaprajzok .grid { gap: 0.9rem; }
+      #alaprajzok p { font-size: 1.15rem; }
 
       #contact .contact-cards { gap: 0.75rem; }
       #contact .contact-cards > div { padding: 1rem; }
@@ -122,6 +150,7 @@
       <div class="hidden md:flex items-center gap-6">
         <a href="#top" class="text-gray-300 hover:text-white">Főoldal</a>
         <a href="#gallery" class="text-gray-300 hover:text-white">Galéria</a>
+        <a href="#alaprajzok" class="text-gray-300 hover:text-white">Alaprajzok</a>
         <a href="#contact" class="text-gray-300 hover:text-white">Kérjen ajánlatot</a>
         <a href="tel:06209467577" class="bg-red-500 text-white px-4 py-2 rounded-full">Hívjon most</a>
       </div>
@@ -133,6 +162,7 @@
       <div class="container mx-auto px-6 py-3 flex items-center gap-2 overflow-x-auto no-scrollbar">
         <a href="#top" class="mobile-pill">Főoldal</a>
         <a href="#gallery" class="mobile-pill">Galéria</a>
+        <a href="#alaprajzok" class="mobile-pill">Alaprajzok</a>
         <a href="#contact" class="mobile-pill">Kérjen ajánlatot</a>
         <a href="tel:06209467577" class="mobile-pill cta">Hívás</a>
       </div>
@@ -192,7 +222,7 @@
       <div class="inline-flex items-center gap-2 bg-slate-800 border border-slate-700 rounded-full px-6 py-2 mb-8">
         <span class="text-yellow-400 text-sm font-medium">Prémium kivitel • 37 m²</span>
       </div>
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div class="grid lg:grid-cols-2 gap-12 items-start">
         <div>
           <h2 class="text-4xl md:text-5xl font-serif font-bold text-white mb-6">Bővíthető mobilház</h2>
           <p class="text-gray-300 text-lg mb-6 leading-relaxed">A bővíthető PRÉMIUM mobilház egy jól felszerelt, mégis megfizethető hordozható bővíthető mobilház.</p>
@@ -259,12 +289,12 @@
             <p class="text-gray-300 leading-relaxed mt-3">Minden ház 95%-os készültségi fokon érkezik az Önhöz, előre elkészített vízvezetékekkel, vezetékekkel, és teljesen felszerelt, kész fürdőszobával és konyhával az Ön kényelme érdekében.</p>
           </div>
         </div>
-        <div class="space-y-6">
-          <div class="relative">
+        <div class="space-y-6 about-visual-stack">
+          <div class="relative about-visual-card">
             <div class="relative rounded-2xl overflow-hidden shadow-2xl">
               <img src="assets/upscalingmedia.png" alt="Mobilház külső" class="w-full h-auto openable">
             </div>
-            <div class="absolute bottom-6 right-6 bg-white rounded-xl shadow-2xl p-6">
+            <div class="absolute bottom-6 right-6 bg-white rounded-xl shadow-2xl p-6 about-stat-card">
               <div class="grid grid-cols-3 gap-6">
                 <div class="text-center">
                   <div class="text-3xl font-bold text-red-500">37 m²</div>
@@ -282,11 +312,11 @@
             </div>
           </div>
 
-          <div class="relative">
+          <div class="relative about-visual-card">
             <div class="relative rounded-2xl overflow-hidden shadow-2xl">
               <img src="assets/H40b999118c934da288fbb12c278bd93do.png" alt="Mobilház külső 72 m²" class="w-full h-auto openable">
             </div>
-            <div class="absolute bottom-6 right-6 bg-white rounded-xl shadow-2xl p-6">
+            <div class="absolute bottom-6 right-6 bg-white rounded-xl shadow-2xl p-6 about-stat-card">
               <div class="grid grid-cols-3 gap-6">
                 <div class="text-center">
                   <div class="text-3xl font-bold text-red-500">72 m²</div>
@@ -393,7 +423,7 @@
   <section id="gallery" class="py-20 bg-gradient-to-b from-slate-800 to-slate-900">
     <div class="container">
       <h2 class="text-4xl md:text-5xl font-serif font-bold text-white text-center mb-16">Galéria</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+      <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         <div class="group relative aspect-square overflow-hidden rounded-xl cursor-pointer">
           <img src="assets/H153616f028cb435f87ec8ea8cb4ff343b-sm.jpg" data-full="assets/H153616f028cb435f87ec8ea8cb4ff343b.png" alt="Konyha" class="w-full h-full object-cover transition-all duration-500 group-hover:scale-110 openable">
           <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -496,6 +526,30 @@
             <div class="absolute bottom-0 left-0 right-0 p-4">
               <p class="text-white font-semibold text-lg">Kültéri nézet</p>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Floorplans Section -->
+  <section id="alaprajzok" class="py-20 bg-slate-900">
+    <div class="container">
+      <h2 class="text-4xl md:text-5xl font-serif font-bold text-white text-center mb-16">Alaprajzok</h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="group relative overflow-hidden rounded-2xl border border-slate-700 bg-slate-800/40 cursor-pointer">
+          <img src="assets/2026-02-06 21.42.36.jpg" alt="37 m² ház alaprajza" class="w-full h-auto object-cover transition-all duration-500 group-hover:scale-105 openable">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/30 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6">
+            <p class="text-white font-semibold text-2xl">37 m²-es ház alaprajza</p>
+          </div>
+        </div>
+
+        <div class="group relative overflow-hidden rounded-2xl border border-slate-700 bg-slate-800/40 cursor-pointer">
+          <img src="assets/2026-02-06 21.33.27.jpg" alt="72 m² ház alaprajza" class="w-full h-auto object-cover transition-all duration-500 group-hover:scale-105 openable">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/30 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6">
+            <p class="text-white font-semibold text-2xl">72 m²-es ház alaprajza</p>
           </div>
         </div>
       </div>
