@@ -178,6 +178,7 @@
       <div class="hidden md:flex items-center gap-6">
         <a href="#top" class="text-gray-300 hover:text-white">Főoldal</a>
         <a href="#gallery" class="text-gray-300 hover:text-white">Galéria</a>
+        <a href="#video" class="text-gray-300 hover:text-white">Videó</a>
         <a href="#alaprajzok" class="text-gray-300 hover:text-white">Alaprajzok</a>
         <a href="#contact" class="text-gray-300 hover:text-white">Kérjen ajánlatot</a>
         <a href="tel:06209467577" class="bg-red-500 text-white px-4 py-2 rounded-full">Hívjon most</a>
@@ -190,6 +191,7 @@
       <div class="container mx-auto px-6 py-3 flex items-center gap-2 overflow-x-auto no-scrollbar">
         <a href="#top" class="mobile-pill">Főoldal</a>
         <a href="#gallery" class="mobile-pill">Galéria</a>
+        <a href="#video" class="mobile-pill">Videó</a>
         <a href="#alaprajzok" class="mobile-pill">Alaprajzok</a>
         <a href="#contact" class="mobile-pill">Kérjen ajánlatot</a>
         <a href="tel:06209467577" class="mobile-pill cta">Hívás</a>
@@ -250,7 +252,7 @@
       <div class="inline-flex items-center gap-2 bg-slate-800 border border-slate-700 rounded-full px-6 py-2 mb-8">
         <span class="text-yellow-400 text-sm font-medium">Prémium kivitel • 37 m²</span>
       </div>
-      <div class="grid lg:grid-cols-2 gap-12 items-start">
+      <div class="grid lg:grid-cols-3 gap-10 items-start">
         <div>
           <h2 class="text-4xl md:text-5xl font-serif font-bold text-white mb-6">Bővíthető mobilház</h2>
           <p class="text-gray-300 text-lg mb-6 leading-relaxed">A bővíthető PRÉMIUM mobilház egy jól felszerelt, mégis megfizethető hordozható bővíthető mobilház.</p>
@@ -317,6 +319,24 @@
             <p class="text-gray-300 leading-relaxed mt-3">Minden ház 95%-os készültségi fokon érkezik az Önhöz, előre elkészített vízvezetékekkel, vezetékekkel, és teljesen felszerelt, kész fürdőszobával és konyhával az Ön kényelme érdekében.</p>
           </div>
         </div>
+
+        <div class="lg:self-center">
+          <div class="sticky top-28 my-8 lg:my-0">
+            <div class="overflow-hidden rounded-3xl border border-slate-700 bg-slate-950/70 shadow-2xl">
+              <div class="px-5 py-4 flex items-center justify-between border-b border-slate-800 bg-slate-900/80">
+                <div>
+                  <p class="text-yellow-400 text-sm font-semibold uppercase tracking-wide">Bemutató videó</p>
+                  <p class="text-gray-300 text-sm">A mobilház rövid videós bemutatása</p>
+                </div>
+              </div>
+              <video class="w-full aspect-video bg-black" controls playsinline muted preload="metadata" poster="assets/upscalingmedia.png">
+                <source src="assets/VID-20260620-WA0009.mp4" type="video/mp4">
+                A böngészője nem támogatja a videólejátszást.
+              </video>
+            </div>
+          </div>
+        </div>
+
         <div class="space-y-6 about-visual-stack">
           <div class="relative about-visual-card">
             <div class="relative rounded-2xl overflow-hidden shadow-2xl">
@@ -361,6 +381,28 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Section -->
+  <section id="video" class="py-20 bg-slate-900">
+    <div class="container">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-10">
+          <div class="inline-flex items-center gap-2 bg-slate-800 border border-slate-700 rounded-full px-6 py-2 mb-4">
+            <span class="text-yellow-400 text-sm font-medium">Bemutató videó</span>
+          </div>
+          <h2 class="text-4xl md:text-5xl font-serif font-bold text-white mb-4">Nézze meg videón is a mobilházat!</h2>
+          <p class="text-gray-300 text-lg max-w-3xl mx-auto"></p>
+        </div>
+
+        <div class="relative overflow-hidden rounded-3xl border border-slate-700 bg-black shadow-2xl">
+          <video class="w-full aspect-video bg-black" controls playsinline muted preload="metadata" poster="assets/upscalingmedia.png">
+            <source src="assets/VID-20260620-WA0009.mp4" type="video/mp4">
+            A böngészője nem támogatja a videólejátszást.
+          </video>
         </div>
       </div>
     </div>
